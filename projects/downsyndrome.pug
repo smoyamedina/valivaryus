@@ -1,0 +1,85 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="style.css")
+        link(rel="stylesheet", href="https://use.typekit.net/anh7nmo.css")
+        title Down Syndrome Acceptance | The Valivaryus Project
+    body
+        .container(data-scroll-container)
+            header(class="header" data-scroll-sticky)
+                a(href="/" class="logo-lockup")
+                    svg(id="logo" class="logo logo-header" data-name="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 250")
+                        g(id="circle")
+                            path(class="logo-shape" d="M125,18.47A106.53,106.53,0,1,1,18.47,125,106.65,106.65,0,0,1,125,18.47M125,0A125,125,0,1,0,250,125,125,125,0,0,0,125,0Z")/
+                        circle(id="dot-left" class="logo-shape" cx="86.79" cy="65.86" r="16.67")/
+                        circle(id="dot-right" class="logo-shape" cx="172.87" cy="164.4" r="20.37")/
+                        path(id="v-blob" class="logo-shape" d="M183,67.68c7.45,8.54,14.25,34.14-2.71,51C166,133,154.71,130.14,144.61,134.5c-8.74,3.78-16.93,18.2-13.12,29,7.8,21.66-2.68,36.85-17.54,41.58-16.38,4.49-32.45-5.85-36.6-20-4.27-14.56,3.9-18.93-2.51-33.12s-18.21-8.79-27.73-23.12c-6-9.06-3.9-27.1,11.74-33.58C71.68,90,88.21,97.15,90.41,114.22c1.9,14.76-6.51,17.53-2.63,27,5.18,12.64,23.68,9.52,29.66-1.46,3.16-5.8,5.92-17.3.28-26.83C105.51,92.28,114,65.66,133.05,55.83,144.57,49.9,166,48.08,183,67.68Z")/                
+                    h1.site-name Valivaryus
+                a(href="#")
+                    p.abt-proj About the project
+            h4.dsacc(data-scroll-sticky) Down Syndrome Acceptance
+            main.main(data-scroll-section)
+                section.section(class="hero")
+                    .hero-text
+                        h2.capable Just as capable.
+                        h2.different Just built different.
+                        p.hero-tag Down Syndrome is a genetic condition that causes differences in one's appearance and development.
+                    .hero-blobs
+                        img.blob-top(src="projects/images/blob_top.svg")
+                        img.blob-right(src="projects/images/trio_BG-blob.svg")
+                        img.blob-left(src="projects/images/blob_left.svg")
+                    .hero-pics
+                        img.hero-img(class="pic-a" src="projects/images/pic1f.jpg" )
+                        img.hero-img(class="pic-b" src="projects/images/pic2f.jpg" )
+                        img.hero-img(class="pic-c" src="projects/images/pic3f.jpg" )
+                        img.hero-img(class="pic-d" src="projects/images/pic4f.jpg")     
+                section.section(class="ds-types")
+                    .ds-types-text
+                        h3.types There are different types of Down Syndrome, so experiences differ.
+                        p.text-tri <mark>Trisomy 21 occurs 95% of the time.</mark>
+                        p.text-mos <mark>Mosaic Down Syndrome occurs 4% of the time.</mark>
+                        p.text-tlo <mark>Translocation occurs around 3 to 5% of the time.</mark>
+                    svg(class="ds-types-svg" viewBox="0 0 1100 1128" fill="none" xmlns="http://www.w3.org/2000/svg")
+                        g(id="tris-blobs")
+                            path(id="dot" d="M275.197 744.987C314.624 784.489 218.196 810.664 254.772 847.311C274.489 867.066 319.849 815.9 360.225 775.446L361.595 774.073C396.443 739.164 418.894 716.674 401.076 698.822C361.65 659.32 363.55 727.854 324.599 688.828C304.795 668.985 393.001 590.787 482.779 500.838C588.232 395.182 673.734 287.147 705.085 318.558C736.436 349.969 637.633 376.145 673.734 412.315C703.559 442.197 750.686 361.867 793.912 318.558C860.889 251.453 925.016 218.138 891.765 184.824C853.289 146.274 793.912 295.238 760.186 261.447C735.911 237.125 794.608 195.072 849.964 139.61C894.14 95.3495 963.547 43.0535 929.766 9.20713C895.47 -25.1542 781.135 116.718 644.758 253.356C508.381 389.994 386.33 544.125 360.225 517.97C334.058 491.753 440.516 398.037 555.469 282.863C711.749 126.284 770.161 100.584 733.11 63.4623C678.959 9.20708 498.453 329.98 451.427 282.863C404.401 235.747 616.257 153.412 566.855 103.916C530.427 67.4175 469.003 156.743 372.575 253.356C276.147 349.969 178.902 403.881 212.02 437.063C267.122 492.27 344.549 301.424 386.35 343.306C428.152 385.187 14.4151 697.87 76.1668 759.74C109.572 793.209 139.097 724.768 205.37 658.368C252.397 611.251 284.657 553.624 310.824 579.84C330.471 599.526 294.056 628.861 178.152 744.987C22.3476 901.089 -16.8258 929.756 13.4653 960.105C69.5168 1016.26 235.771 705.485 275.197 744.987Z" stroke="#7F8AC3" stroke-width="8")/
+                            path(id="med" d="M660.817 944.996C698.394 982.572 588.794 1017.02 624.023 1052.25C654.554 1082.78 707.005 1017.8 807.994 916.812C915.246 809.56 975.035 781.67 937.949 744.583C914.229 720.864 898.023 753.195 822.869 828.349C763.371 887.847 733.623 920.727 707.789 894.892C674.909 862.012 784.509 833.559 740.649 789.7C712.756 761.806 642.797 842.526 546.369 939.14C449.94 1035.75 366.224 1082.48 399.343 1115.66C454.445 1170.87 623.24 907.419 660.817 944.996Z"  stroke="#7F8AC3" stroke-width="8")/
+                        g(id="translocation")
+                            path(id="med_2" d="M894.05 681.614C948.409 627.113 1017.82 577.643 995.241 547.877C962.626 515.176 940.882 593.574 901.995 554.585C863.107 515.596 1110.97 379.257 1064.4 332.527C1025.48 293.479 957.755 386.674 863.07 481.678C768.385 576.683 692.092 602.023 734.836 644.912C776.305 686.521 818.034 557.476 863.07 602.663C899.028 638.743 719.524 723.764 763.588 767.976C793.683 798.173 839.691 736.114 894.05 681.614Z" stroke="#F297BA" stroke-width="8")/
+                            path(id="dot_2" d="M271.422 1033.48C254.804 1050.42 232.447 1065.74 218.188 1051.48C199.373 1032.67 212.894 1010.97 230.714 995.119C247.001 980.626 266.236 970.361 280.816 984.941C297.711 1001.84 286.735 1017.87 271.422 1033.48Z" stroke="#F297BA" stroke-width="8")/
+                        g(id="mosaic")
+                            path(id="med_3" d="M614.98 805.533C669.25 751.239 738.548 701.957 716.005 672.304C683.443 639.728 660.745 716.82 627.082 683.157C600.578 656.652 658.471 611.173 755.471 514.172C876.031 393.612 925.695 361.088 897.169 332.549C868.478 303.846 849.414 342.726 742.946 449.195C649.003 543.138 617.79 584.058 597.334 563.602C567.688 533.956 694.66 474.498 660.818 440.656C633.67 413.507 597.97 469.99 532.429 535.561C466.889 601.131 396.396 645.161 423.54 672.304C464.505 713.269 512.099 583.158 548.001 619.075C583.902 654.993 261.811 886.139 317.333 941.686C372.855 997.233 515.134 722.365 551.944 759.175C582.508 789.738 454.676 861.498 484.733 891.568C514.79 921.639 560.711 859.827 614.98 805.533Z" stroke="#F3C471" stroke-width="8")/
+                            path(id="dot_3" d="M931.584 110.623C948.201 93.6839 970.559 78.3572 984.818 92.6169C1003.63 111.431 990.112 133.127 972.292 148.983C956.005 163.476 936.77 173.74 922.189 159.16C905.295 142.265 916.271 126.232 931.584 110.623Z" stroke="#F3C471" stroke-width="8")/
+                section.section(class="exp-wall")
+                    h3.text-wall asdiuyflasiodufyasioufyaiow8eufoiawuerilwuyeriuawer
+                footer.footer(data-scroll-sticky)
+                    svg(id="logo" class="logo logo-footer" data-name="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 250")
+                        g(id="circle")
+                            path(class="logo-shape" d="M125,18.47A106.53,106.53,0,1,1,18.47,125,106.65,106.65,0,0,1,125,18.47M125,0A125,125,0,1,0,250,125,125,125,0,0,0,125,0Z")/
+                        circle(id="dot-left" class="logo-shape" cx="86.79" cy="65.86" r="16.67")/
+                        circle(id="dot-right" class="logo-shape" cx="172.87" cy="164.4" r="20.37")/
+                        path(id="v-blob" class="logo-shape" d="M183,67.68c7.45,8.54,14.25,34.14-2.71,51C166,133,154.71,130.14,144.61,134.5c-8.74,3.78-16.93,18.2-13.12,29,7.8,21.66-2.68,36.85-17.54,41.58-16.38,4.49-32.45-5.85-36.6-20-4.27-14.56,3.9-18.93-2.51-33.12s-18.21-8.79-27.73-23.12c-6-9.06-3.9-27.1,11.74-33.58C71.68,90,88.21,97.15,90.41,114.22c1.9,14.76-6.51,17.53-2.63,27,5.18,12.64,23.68,9.52,29.66-1.46,3.16-5.8,5.92-17.3.28-26.83C105.51,92.28,114,65.66,133.05,55.83,144.57,49.9,166,48.08,183,67.68Z")/                
+                    span.projname 
+                        span.proj-val The Valivaryus Project
+                        span.proj-this Down Syndrome Acceptance 
+                    .abt 
+                        h4.abt-title About the project 
+                        p.abtp The Valivaryus Down Syndrome Acceptance Project was created by MICA senior Samanta Moya Medina in order to address the dehumanizing and isolating nature of the language used for Intellectual or Developmental disabilities across online literature.
+                        a(href="/#" class="mainprojlink") Visit the main project page →
+                    p.disclaimer All Videos and photos belong to their respective owners. This project is not for profit.
+                    span.credit 
+                        p.desby Website designed by SMOYA.ME
+                        p.copyright 2021 &copy; All rights reserved.
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js")
+        script(src="parallax.min.js")
+        script(src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.0/dist/locomotive-scroll.min.js")
+        //- script(src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scrollbar/8.6.1/smooth-scrollbar.js") 
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js") 
+        //- script(src="CSSRulePlugin.js")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/CSSRulePlugin.min.js") 
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollTrigger.min.js")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/TextPlugin.min.js")
+
+        script(src="script.js") 
