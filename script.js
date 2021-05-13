@@ -175,7 +175,6 @@ gsap.to('.pic-d', {
 // close container from right to left polygon(0 0, 0 0, 0 100%, 0% 100%)
 
 //---ds-types anim
-
 let typesAnimTimeline = gsap.timeline({
     ease: 'power4.out',     
     scrollTrigger: {
@@ -190,10 +189,29 @@ let typesAnimTimeline = gsap.timeline({
         end: '+=100%',
         // toggleActions: 'play reverse play reverse'
     }
-})    
+})
+
+gsap.fromTo('.ds-types-svg',{
+    y: 250,
+    x: -250
+    }, {
+    y: -250,
+    x: 250,
+    ease: "power2.in",
+    scrollTrigger: {
+        trigger: '.ds-types',
+        scroller: '.container',
+        // markers: true,
+        scrub: true,
+        start: "top bottom", 
+        end:"bottom -10%",
+        toggleActions: 'play reverse play reverse'
+    }}, '0'
+)
+
 typesAnimTimeline.to('#tris-blobs', {
     "fill": "#7F8AC3",
-})
+}, 0)
 typesAnimTimeline.to('.text-tri mark', {
     "clipPath": "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)"
 }, "<")
@@ -213,6 +231,62 @@ typesAnimTimeline.to('.text-tlo mark', {
 ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
 
 ScrollTrigger.refresh();
+
+
+
+let txtWallTimeline = gsap.timeline({
+    ease: 'power4.out',     
+    scrollTrigger: {
+        trigger: '.exp-wall',
+        scroller: '.container',
+        scrub: .5,
+        // markers: true,
+        pin: true,
+        // pinSpacing: false,
+        // pinType: "fixed",
+        start: 'top top',
+        end: '+=100%',
+        // toggleActions: 'play reverse play reverse'
+    }
+})
+
+txtWallTimeline.to('.text-wall',{y:"-45vh"})
+
+let wallParall = (imgDiv, start, end) => {
+    gsap.fromTo(`${imgDiv}`, {
+        y:`${start}`
+    },{
+        y: `${end}`,
+        ease: 'power4.in', 
+        scrollTrigger: {
+            scroller: '.container',
+            trigger: '.exp-wall',
+            scrub: .2,
+            // markers: true,
+            start: 'top bottom',
+            end: 'bottom top',
+            toggleActions: 'play reverse play reverse'
+            }
+    })
+}
+
+
+
+wallParall('.linda','500', '-500')
+wallParall('.jamie','750', '-750')
+wallParall('.isa','1500', '-1500')
+wallParall('.model','1500', '-1500')
+wallParall('.karen','500', '-50')
+wallParall('.fam','750', '-750')
+
+// attempt at hover effect
+var myAnimation = new hoverEffect({
+    parent: document.querySelector('.klink'),
+    intensity: 0.3,
+    image1: 'images/karen0.jpg',
+    image2: 'images/karen.jpg',
+    displacementImage: 'images/displace.png'
+});
 
 //---interact w footer
 gsap.to ('.dsacc', {

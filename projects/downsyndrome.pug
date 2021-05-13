@@ -52,8 +52,21 @@ html(lang="en")
                         g(id="mosaic")
                             path(id="med_3" d="M614.98 805.533C669.25 751.239 738.548 701.957 716.005 672.304C683.443 639.728 660.745 716.82 627.082 683.157C600.578 656.652 658.471 611.173 755.471 514.172C876.031 393.612 925.695 361.088 897.169 332.549C868.478 303.846 849.414 342.726 742.946 449.195C649.003 543.138 617.79 584.058 597.334 563.602C567.688 533.956 694.66 474.498 660.818 440.656C633.67 413.507 597.97 469.99 532.429 535.561C466.889 601.131 396.396 645.161 423.54 672.304C464.505 713.269 512.099 583.158 548.001 619.075C583.902 654.993 261.811 886.139 317.333 941.686C372.855 997.233 515.134 722.365 551.944 759.175C582.508 789.738 454.676 861.498 484.733 891.568C514.79 921.639 560.711 859.827 614.98 805.533Z" stroke="#F3C471" stroke-width="8")/
                             path(id="dot_3" d="M931.584 110.623C948.201 93.6839 970.559 78.3572 984.818 92.6169C1003.63 111.431 990.112 133.127 972.292 148.983C956.005 163.476 936.77 173.74 922.189 159.16C905.295 142.265 916.271 126.232 931.584 110.623Z" stroke="#F3C471" stroke-width="8")/
-                section.section(class="exp-wall")
-                    h3.text-wall asdiuyflasiodufyasioufyaiow8eufoiawuerilwuyeriuawer
+                section.text-wall-wrap
+                    .section(class="exp-wall")
+                        .person(class="linda")
+                        .person(class="jamie")
+                        .person(class="karen")
+                        .person(class="isa")
+                        .person(class="model")
+                        .person(class="fam")
+                        svg.wavecontain(class="wavetop" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 107")
+                            path(id="wavetop" class="cls-2" d="M900,107H0V28c30.77,2.46,88.73,26.32,116.92,36,52,17.85,68.37,14.82,103.4-7.1,37.83-23.67,69.53-17.52,103.06,1.87,55.78,32.23,93.4,24.84,118.16,19.4,84.78-18.61,121.16-11.89,141.23-6.48,65.08,17.54,104.48-14.13,124.79-25C754,21.85,822.15-8.92,900,12.62Z")/
+                        svg.wavecontain(class="wavebott" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 107")
+                            path(id="wavebott" class="cls-2" d="M900,107H0V28c30.77,2.46,88.73,26.32,116.92,36,52,17.85,68.37,14.82,103.4-7.1,37.83-23.67,69.53-17.52,103.06,1.87,55.78,32.23,93.4,24.84,118.16,19.4,84.78-18.61,121.16-11.89,141.23-6.48,65.08,17.54,104.48-14.13,124.79-25C754,21.85,822.15-8.92,900,12.62Z")/
+                    h3.text-wall You expect everyone to be different in some way or another when you walk down a street. Those who live with Down Syndrome are no exception to the rule. Some live as <a class="jlink" href="https://en.wikipedia.org/wiki/Jamie_Brewer">an actor in the United States→</a>, could live as a <a class="klink" href="https://www.youtube.com/watch?v=HwxjoBQdn0s">Special Olympic Gold Medalist→</a>, another could be <a class="ilink" href="https://www.youtube.com/watch?v=59dOCJkhhqU">a Guatemalan fashion designer →</a>, or perhaps even <a class="mlink" href="https://www.youtube.com/watch?v=-Bm41jdx__M">a rising model in Australia→</a>. They could also just be part of <a class="flink" href="https://www.youtube.com/watch?v=7n47zBdQ6qg">an average family in Pittsburgh→</a>.
+                section.section(class="rights")
+                    h3.rights-text-contain Text example
                 footer.footer(data-scroll-sticky)
                     svg(id="logo" class="logo logo-footer" data-name="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 250")
                         g(id="circle")
@@ -81,5 +94,7 @@ html(lang="en")
         script(src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/CSSRulePlugin.min.js") 
         script(src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollTrigger.min.js")
         script(src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/TextPlugin.min.js")
+        script(src="https://ajax.googleapis.com/ajax/libs/threejs/r76/three.min.js")
+        script(src="hover-effect.js")  
 
         script(src="script.js") 
