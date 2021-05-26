@@ -1,5 +1,6 @@
 $font-body-size: 24px;
 $font-h3size: 3.75rem;
+$font-h4size: 2.5rem;
 $font-txtwallsize: 3rem;
 $font-subsize: .6rem;
 $font-body-lineH: $font-body-size * 1.5;
@@ -332,13 +333,21 @@ $indent-size: 1.2rem;
 }
 
 //---Wall of text scroll
+.text-wall-wrap, .experts {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // margin-bottom: 30rem;
+    pointer-events: none;
+}
+
 .text-wall-wrap {
     height: min-content;
-    position: relative;
-    // margin-bottom: 30rem;
 }
 
 .exp-wall {
+    // pointer-events: none;
     background: $sub-mid;
     position: absolute;
     width: 100%;
@@ -378,6 +387,44 @@ $indent-size: 1.2rem;
     grid-column-end: span 2;
     grid-row-end: span 2;
     background-color: $main-bright;
+    pointer-events: auto;
+}
+
+// .person canvas {
+//     width: 100% !important;
+//     height: 100% !important;
+//     background-size: cover;
+// }
+@mixin prepPseudo{
+    position: relative;
+    transition: 1s cubic-bezier(0, 0.75, 0.25, 1);
+}
+@mixin wallImgPrep($divName, $trueimgURL, $coverimgURL) {
+    #{$divName}::before, #{$divName}::after {
+        content: "";
+        display: block;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-size: cover;
+        transition: inherit;
+    }
+    
+    #{$divName}::before {
+        background-image: $trueimgURL;
+    } 
+
+    #{$divName}::after {
+        background-image: $coverimgURL;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+
+    #{$divName}.reveal::after {
+        transition: inherit;
+        clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+    }
 }
 
 .linda {
@@ -386,54 +433,74 @@ $indent-size: 1.2rem;
     //left top
     transform: scale(.9);
     transform-origin: left center;
+    @include prepPseudo;
 }
+@include wallImgPrep(".linda", url(projects/images/linda.jpg), url(projects/images/linda0.jpg));
 
 .jamie {
     grid-column-start: 1;
     grid-row-start: 4;
     //left mid
+    @include prepPseudo;
 }
+@include wallImgPrep(".jamie", url(projects/images/jamie.jpg), url(projects/images/jamie0.jpg));
+
 
 .karen {
-    grid-column-start: 11;
-    grid-row-start: 5;
-    //right mid
-    transform: scale(.9);
-    // transform-origin: left center;
-}
-
-.isa {
-    grid-column-start: 2;
-    grid-row-start: 7;
-    //left bottom
-    transform: scale(1.2);
-}
-
-.model {
     grid-column-start: 9;
     grid-row-start: 2;
+    //right mid
+    transform: scale(1.2);
+    // transform-origin: left center;
+    // z-index: 9999;
+    @include prepPseudo;
+}
+@include wallImgPrep(".karen", url(projects/images/karen.jpg), url(projects/images/karen0.jpg));
+
+
+.isa {
+    grid-column-start: 11;
+    grid-row-start: 5;
+    //left bottom
+    transform: scale(.9);
+    @include prepPseudo;
+}
+@include wallImgPrep(".isa", url(projects/images/isa.jpg), url(projects/images/isa0.jpg));
+
+
+.model {
+    grid-column-start: 2;
+    grid-row-start: 7;
     //right top
     transform: scale(1.2);
+    @include prepPseudo;
 }
+@include wallImgPrep(".model", url(projects/images/model.jpg), url(projects/images/model0.jpg));
 
 .fam {
-    grid-column-start: 8;
+    grid-column-start: 9;
     grid-row-start: 8;
     //right bottom
+    @include prepPseudo;
+}
+@include wallImgPrep(".fam", url(projects/images/fam.jpg), url(projects/images/fam0.jpg));
+
+.text-wall, .text-wall-exp {
+    display: block;
+    width: 18ch;
+    // margin: 0 auto;
 }
 
 .text-wall {
-    display: block;
-    width: 18ch;
-    margin: 0 auto;
     padding: 45vh 0 0 0;
 }
 
-.text-wall, .text-wall a {
+.text-wall, .text-wall a, .text-wall-exp, .text-wall-exp a {
     font-size: $font-txtwallsize;
 }
 
-.text-wall a {
+.text-wall a, .text-wall-exp a, .atoztext a {
+    pointer-events: auto;
     color: $main-dark;
     text-decoration-color: $main-dark;
     transition-property: text-decoration-color, color;
@@ -445,6 +512,256 @@ $indent-size: 1.2rem;
     color: $sub-bright;
     text-decoration-color: $sub-bright;
 }
+
+.text-wall-exp a:hover, .atoztext a:hover {
+    color:$sub-mid;
+    text-decoration-color: $sub-mid;
+    mix-blend-mode: color-dodge;
+}
+
+.rights {
+    display: grid;
+    grid-template-columns: $grid-setting-col;
+    margin-top: 10vw;
+    // align-items: center;
+    height: 100vh;
+    // place-items: center;
+}
+
+.rights-text-contain{
+    width: 12ch;
+    height: 100vh;
+    // background-color: lime;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: $font-h3size;
+    grid-column: 2 / 7;
+    p {
+        width: 35ch;
+        margin-bottom: .5em;
+    }
+    position: sticky;
+    top: 0;
+}
+
+.rights-text {
+    display: block;
+    margin-bottom: 1.5rem;
+}
+
+
+.rights-action-contain {
+    grid-column: 7 / 12;
+    padding: 40vh 0;
+}
+
+.blobbg {
+    height: 100vh;
+    padding: 15vh 0;
+    display: block;
+    margin: 0 0 0 auto;
+    z-index: -1;
+}
+
+.way-two-bg {
+    transform: rotate(120deg)
+}
+
+.way-three-bg {
+    transform: rotate(240deg);
+}
+
+.way-one, .way-two, .way-three {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.w-txtcontain {
+    position: absolute;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 15% 0 20%;
+    h4 {
+        font-size: $font-h4size;
+        font-weight: 200;
+        display: block;
+        margin-bottom: .75em;
+    }
+}
+
+.way-one, .wotxt-contain {
+    color: $main-dark;
+}
+
+// .wotxt-contain {
+//     margin-left: 20%;
+// }
+
+.way-two, .wtwtxt-contain, .wtwtxt-contain p {
+    color: $sub-bright;
+}
+
+// .wtwtxt-contain {
+
+// }
+
+.way-three, .wthtxt-contain, .wthtxt-contain p {
+    color: $main-bright;
+}
+
+// .rights-text-contain
+
+//---EXPERTS SECTION
+.experts{
+    position: relative;
+    height: 100vh;
+    justify-content: center;
+}
+
+.imgbg-contain {
+    background-image: url(projects/images/experts.gif);
+    background-size: cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    transform: scale(.68);
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+//---fromatoz
+
+.fromatoz {
+    display: grid;
+    grid-template-columns: $grid-setting-col;
+    align-items: center;
+    position: relative;
+}
+
+.atoztext {
+    display: block;
+    grid-column: 2 / 11;
+    height: auto;
+}
+
+.atoztext a, .atoztext span {
+    font-size: $font-h3size;
+} 
+
+.atoztext span {
+    display: inline-block;
+    position: relative;
+}
+
+.atoztext span mark {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    background: $sub-bright;
+    z-index: -1;
+}
+
+.atoztext a:hover {
+    mix-blend-mode: color-burn;
+}
+
+// .imagediv {
+//     background-image: url('');
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     height: 100vh;
+//     width: 100vh;
+//     background: $sub-warm;
+//     z-index: -1;
+// }
+
+.gfilter, .ifilter {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 30vw;
+    height: 30vw;
+    z-index: -1;
+    opacity: .4;
+}
+
+.gfilter {
+    // left: 0;
+    right: 50%;
+    top: 0;
+    background: $sub-bright;
+    background-image: url(projects/images/g-filter.jpg);
+    background-size: cover;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.ifilter {
+    // right: 0;
+    left: 50%;
+    bottom: 0;
+    background: $sub-warm;
+    background-image: url(projects/images/i-filter.jpg);
+    background-size: cover;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+//---MYTH last slide
+
+.myth {
+    display: grid;
+    grid-template-columns: $grid-setting-col;
+    align-items: center;
+    background:$sub-bright;
+    height: 80vh
+}
+
+.myth-text-contain {
+    display: block;
+    grid-column: 2 / 9;
+    height: auto;
+}
+
+.mythtext {
+    max-width: 16ch;
+    margin-bottom: 1.5rem;
+}
+
+.withyou {
+    max-width: 60ch;
+}
+
+.myth-cta {
+    grid-column: 10 / 12;
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+    transform: scale(1);
+    transition: all 1s cubic-bezier(0, 0.75, 0.25, 1);
+}
+
+.myth-cta:hover {
+    transform: scale(1.25);
+}
+
+.find {
+    position: absolute;
+    margin: 0 auto;
+    display: block;
+    width: 150%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $sub-dark;
+}
+
 
 //footer 
 

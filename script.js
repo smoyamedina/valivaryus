@@ -1,4 +1,9 @@
+//kristian if you're reading this im sorry i just had to get this out on time aksdjhfaksdhfaskjdf
+
+
 //locomotive scroll
+
+gsap.registerPlugin(CSSRulePlugin);
 
 //watch the free video on how this demo was made
 // https://www.snorkl.tv/scrolltrigger-smooth-scroll/
@@ -257,7 +262,7 @@ let wallParall = (imgDiv, start, end) => {
         y:`${start}`
     },{
         y: `${end}`,
-        ease: 'power4.in', 
+        ease: 'power3.in', 
         scrollTrigger: {
             scroller: '.container',
             trigger: '.exp-wall',
@@ -272,21 +277,175 @@ let wallParall = (imgDiv, start, end) => {
 
 
 
-wallParall('.linda','500', '-500')
-wallParall('.jamie','750', '-750')
-wallParall('.isa','1500', '-1500')
-wallParall('.model','1500', '-1500')
-wallParall('.karen','500', '-50')
-wallParall('.fam','750', '-750')
+wallParall('.linda','200', '-200')
+wallParall('.jamie','300', '-300')
+wallParall('.karen','600', '-600')
+wallParall('.model','600', '-600')
+wallParall('.isa','200', '-200')
+wallParall('.fam','300', '-300')
 
-// attempt at hover effect
-var myAnimation = new hoverEffect({
-    parent: document.querySelector('.klink'),
-    intensity: 0.3,
-    image1: 'images/karen0.jpg',
-    image2: 'images/karen.jpg',
-    displacementImage: 'images/displace.png'
-});
+gsap.to('.person', {
+    ease: "linear",
+    y: '-=350',
+    immediateRender: false,
+    scrollTrigger: {
+        scroller: '.container',
+        trigger: '.rights',
+        scrub: true,
+        // markers: true,
+        start: 'top bottom',
+        end: 'bottom top',
+        toggleActions: 'play reverse play reverse'
+    }
+})
+///---/---animated hover link with img reveal
+
+let selectSubject = (soloName) => {
+    let subjectName = soloName;
+    let subjSelector = document.querySelector(`.${subjectName}`)
+    let subjLinkClass = document.querySelector(`.${subjectName[0]}link`)
+
+    let imgRevealEvent = (link, subjectClass) => {
+        link.addEventListener('mouseenter', enterAnim => {
+            subjectClass.classList.add("reveal")
+        } )
+
+        link.addEventListener('mouseleave', exitAnim => {
+            subjectClass.classList.remove("reveal")
+        } )
+    }
+
+    return imgRevealEvent(subjLinkClass, subjSelector)
+}
+
+// selectSubject('linda')
+selectSubject('jamie')
+selectSubject('karen')
+selectSubject('isa')
+selectSubject('model')
+selectSubject('fam')
+
+//---/---pin rights text and scroll thrublobs info
+
+let rightsPinTL = gsap.timeline({
+    ease: 'power4.out',     
+    scrollTrigger: {
+        trigger: '.rights',
+        scroller: '.container',
+        scrub: 1.5,
+        // markers: true,
+        pin: true,
+        // pinSpacing: false,
+        // pinType: "fixed",
+        start: 'top top',
+        end: '+=100%',
+    }
+})
+
+rightsPinTL.to('.rights-text-contain', {
+    ease: 'power4.out'
+})
+
+rightsPinTL.to('.rights-action-contain', {ease: 'linear', y: "-260vh"}, '<')
+
+//---EXPERTS ANIMATION
+
+let expertsTL = gsap.timeline({     
+    scrollTrigger: {
+        trigger: '.experts',
+        scroller: '.container',
+        scrub: true,
+        // markers: true,
+        pin: true,
+        // pinSpacing: false,
+        // pinType: "fixed",
+        start: 'top top',
+        end: '+=100%',
+        // toggleActions: 'play reverse play reverse'
+    }
+})
+
+
+expertsTL.from('.imgbg-contain', {
+    // y: "50%",
+    ease: "power1.out",
+    "transform": "scale(1.5)",
+    duration: 4,
+    opacity: 0,
+})
+expertsTL.from('.text-wall-exp', {
+    y: "150%",
+    ease: "circ.out",
+    duration: 2,
+}, "-=1")
+expertsTL.to('.imgbg-contain', {
+    // y:"-50%",
+    opacity: 0,
+    ease: "power1.in",
+    "transform": "scale(.3)",
+    delay: 3,
+    duration: 4,
+})
+expertsTL.to('.text-wall-exp', {
+    y: "-150%",
+    ease: "circ.in",
+    duration: 2,
+    // delay: .5,
+}, '<')
+
+//---FROMATOZ ANIM
+const mark = document.querySelector('.atoztext span mark')
+
+let atozTL = gsap.timeline({
+    duration: 2,     
+    scrollTrigger: {
+        trigger: '.fromatoz',
+        scroller: '.container',
+        scrub: true,
+        // markers: true,
+        pin: true,
+        // pinSpacing: false,
+        // pinType: "fixed",
+        start: 'top top',
+        end: '+=100%',
+        // toggleActions: 'play reverse play reverse'
+    }
+})
+//default opac is .4
+atozTL.from('.gfilter' , {
+    "clipPath": "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+    // y: "-110%",
+    opacity: 0,
+    ease: "circ.out",
+})
+atozTL.from('.ifilter' , {
+    "clipPath": "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+    // y: "110%",
+    opacity: 0,
+    ease: "circ.out",
+}, '<')
+atozTL.to('.gfilter' , {
+    "clipPath": "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+    // y: "110%",
+    opacity: 0,
+    ease: "circ.in",
+})
+atozTL.to('.ifilter' , {
+    "clipPath": "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+    // y: "110%",
+    opacity: 0,
+    ease: "circ.in",
+}, '<')
+atozTL.from(mark, {
+    opacity: 0,
+    ease: "circ.in",
+    "clipPath": "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
+}, "-=.75")
+
+
+//shutter on top--------- polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)
+//shutter open, default-- polygon(0 0, 100% 0, 100% 100%, 0% 100%)
+//shutter on bottom------ polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)
 
 //---interact w footer
 gsap.to ('.dsacc', {
